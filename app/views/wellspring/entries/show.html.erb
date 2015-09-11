@@ -1,0 +1,29 @@
+<p>
+  <strong>Content class:</strong>
+  <%= @entry.type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @entry.title %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @entry.slug %>
+</p>
+
+<% @entry.class.content_attributes.each do |attr_name, class_name| %>
+  <p>
+    <strong><%= attr_name %>:</strong>
+    <%= @entry.send(attr_name.to_sym) %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Author name:</strong>
+  <%= @entry.author_name %>
+</p>
+
+<%= link_to 'Edit', edit_content_entry_path(@entry) %> |
+<%= link_to 'Back', content_entries_path %>

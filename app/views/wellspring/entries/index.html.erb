@@ -1,0 +1,26 @@
+<h1><%= content_class.tableize.titleize %></h1>
+
+<%= link_to "New #{content_class.titleize}", new_content_entry_path, class: 'btn btn-primary space-2' %>
+
+<table class="table space-4">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Created at</th>
+      <th>Published at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= link_to entry.title, content_entry_path(entry) %></td>
+        <td><%= time_ago_in_words entry.created_at %> ago</td>
+        <td><%= entry.published_at %></td>
+        <td><%= link_to 'Edit', edit_content_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', content_entry_path(entry), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+@import 'components/variables';
+
+$em-base: 14px;
+
+// Colors
+$blue: #3D8EC5;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #DDD;
+$light-red: #FBE3E4;
+$light-yellow: #FFF6BF;
+$light-green: #8aba56;
+$yellow: #FDBD41;
+$red: #FC625D;
+$green: #34C849;
+$blue-gray: #F2F5F8;
+//$blue-gray: #f4f7f8;
+//$blue-gray: #EFF6FC;
+
+$base-background-color: #fff;
+$base-font-color: #414141;
+$base-font-color: #2F3344; // #565a5c;
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$muted-text-color: #82888a;
+
+$base-font-size: $em-base;
+$base-line-height: 1.43;
+
+$base-border-color: #d4d4d4;
+$secondary-border-color: rgba(218,218,218,0.65);
+
+// Links
+$base-link-color: $blue;
+$hover-link-color: darken($base-link-color, 20);
+
+// Navigation
+$nav-background-color: #3A4043;
+$nav-link-color: #A5A5A5;
+$nav-link-color-active: #fff;
+$nav-active-highlight-color: #cecfd1;
+
+$sidenav-link-color: #7f8186;
+$sidenav-link-color-hover: $nav-link-color;
+
+$alert-color: $light-yellow;
+$error-color: $light-red;
+$notice-color: lighten(#12A5F4, 40);
+$success-color: $light-green;
+
+
+@import "bourbon/bourbon";
+
+@import "components/grid-settings";
+
+@import "neat/neat";
+@import "components/grid";
+@import "components/base";
+
+// Application-specific
+@import "shared";
+@import "navigation";
+
+@import "font-awesome.css";

@@ -1,0 +1,99 @@
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 21px;
+
+  @include clear-user-select;
+}
+
+.btn-primary.btn {
+  //background-image: linear-gradient(-1deg, #3494F7 0%, #40ABF9 100%);
+  background-color: #3494F7;
+  border: 1px solid #2299E4;
+}
+
+.btn:hover, .btn:focus { text-decoration: none }
+.btn:hover, .btn:focus { color:#fff }
+
+.btn-primary.btn:hover, .btn-primary.btn:focus {
+  //background-image: linear-gradient(-1deg, darken(#3494F7, 5) 0%, darken(#40ABF9, 5) 100%);
+  background-color: darken(#3494F7, 5);
+  color:#fff
+}
+
+.btn-primary.btn:active {
+  //background-image: linear-gradient(-1deg, #40ABF9 0%, #3494F7 100%);
+  background-color: darken(#3494F7, 8);
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+.btn-facebook.btn {
+  background-color: #3b5998;
+  background-image: linear-gradient(-1deg, #3B5999 0%, #4364AB 100%);
+  border: 1px solid #3B5895;
+}
+
+.btn-facebook.btn:hover {
+  border-color: #3b5998;
+  border-bottom-color: darken(#3b5998, 10%);
+  background-color: lighten(#3b5998, 5%);
+  color: #fff
+}
+
+a.btn > .fa {
+  font-size: 1.6em;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+
+
+.btn.btn-secondary {
+  border: none;
+  background: #34C849;
+  color: #fff;
+}
+
+.btn.btn-secondary:hover {
+  background: darken(#34C849, 5);
+}
+
+.btn.btn-secondary:active {
+  background: darken(#34C849, 10);
+}
+
+.btn.btn-add {
+  border: 1px solid #FC625D;
+  background: #FC625D;
+  //background-image: linear-gradient(-180deg, #FF7773 0%, #FC625D 100%);
+  border-radius: 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.btn.btn-add:hover {
+  //background-image: linear-gradient(-180deg, #FC625D 0%, #FF7773 100%);
+  background-color: #FF7773;
+}
+
+.btn.btn-add:active {
+  //background-image: linear-gradient(-180deg, #FC625D 50%, #FF7773 100%);
+  background: #FC625D;
+}
+

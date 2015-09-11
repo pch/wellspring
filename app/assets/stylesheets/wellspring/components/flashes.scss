@@ -1,0 +1,45 @@
+@mixin flash($color) {
+  background: $color;
+  box-shadow: darken($color, 20) 0px 1px 1px 0px;
+
+  color: darken($color, 60);
+
+  a {
+    color: darken($color, 70);
+
+    &:hover {
+      color: darken($color, 90);
+    }
+
+    float: right;
+  }
+}
+
+%flash-base {
+  float: right;
+  margin-bottom: $base-line-height / 2;
+  margin-top: 10px;
+  padding: 10px 20px;
+  width: 50%;
+  border-radius: 2px;
+}
+
+.flash-alert {
+  @extend %flash-base;
+  @include flash($alert-color);
+}
+
+.flash-error {
+  @extend %flash-base;
+  @include flash($error-color);
+}
+
+.flash-notice {
+  @extend %flash-base;
+  @include flash($notice-color);
+}
+
+.flash-success {
+  @extend %flash-base;
+  @include flash($success-color);
+}

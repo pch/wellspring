@@ -1,0 +1,144 @@
+.wrapper {
+  @include outer-container();
+}
+
+.wrapper-full {
+  width: auto;
+}
+
+.wrapper-flash {
+  position: absolute;
+  right: 50px;
+  left: 50px;
+  top: 50px;
+  z-index: 800;
+}
+
+.wrapper-content {
+  min-height: 600px;
+}
+
+.wrapper-condensed {
+  @include span-columns(8);
+}
+
+.space-1 { margin-top: 6.25px; }
+.space-bottom-1 { margin-bottom: 6.25px; }
+
+.space-2 { margin-top: 15px; }
+.space-bottom-2 { margin-bottom: 15px; }
+
+.space-4 { margin-top: 25px; }
+.space-bottom-4 { margin-bottom: 25px; }
+
+.space-6 { margin-top: 37.5px; }
+.space-bottom-6 { margin-bottom: 37.5px; }
+
+.space-8 { margin-top: 50px; }
+.space-bottom-8 { margin-bottom: 50px; }
+
+.space-left-2  { margin-left: 15px; }
+.space-right-2 { margin-right: 15px; }
+
+.space-left-4  { margin-left: 25px; }
+.space-right-4 { margin-right: 25px; }
+
+.row {
+  @include row();
+}
+
+.col-1  { @include span-columns(1);  }
+.col-2  { @include span-columns(2);  }
+.col-3  { @include span-columns(3);  }
+.col-4  { @include span-columns(4);  }
+.col-5  { @include span-columns(5);  }
+.col-6  { @include span-columns(6);  }
+.col-7  { @include span-columns(7);  }
+.col-8  { @include span-columns(8);  }
+.col-9  { @include span-columns(9);  }
+.col-10 { @include span-columns(10); }
+.col-11 { @include span-columns(11); }
+.col-12 { @include span-columns(12); }
+
+@include media($screen-xs) {
+  .col-xs-1  { @include span-columns(1);  }
+  .col-xs-2  { @include span-columns(2);  }
+  .col-xs-3  { @include span-columns(3);  }
+  .col-xs-4  { @include span-columns(4);  }
+  .col-xs-5  { @include span-columns(5);  }
+  .col-xs-6  { @include span-columns(6);  }
+  .col-xs-7  { @include span-columns(7);  }
+  .col-xs-8  { @include span-columns(8);  }
+  .col-xs-9  { @include span-columns(9);  }
+  .col-xs-10 { @include span-columns(10); }
+  .col-xs-11 { @include span-columns(11); }
+  .col-xs-12 { @include span-columns(12); }
+
+  .wrapper {
+    @include outer-container(90%);
+  }
+
+  .wrapper-condensed {
+    @include outer-container(100%);
+    @include span-columns(12);
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@include media($screen-sm) {
+  .col-sm-1  { @include span-columns(1);  }
+  .col-sm-2  { @include span-columns(2);  }
+  .col-sm-3  { @include span-columns(3);  }
+  .col-sm-4  { @include span-columns(4);  }
+  .col-sm-5  { @include span-columns(5);  }
+  .col-sm-6  { @include span-columns(6);  }
+  .col-sm-7  { @include span-columns(7);  }
+  .col-sm-8  { @include span-columns(8);  }
+  .col-sm-9  { @include span-columns(9);  }
+  .col-sm-10 { @include span-columns(10); }
+  .col-sm-11 { @include span-columns(11); }
+  .col-sm-12 { @include span-columns(12); }
+
+  .wrapper {
+    @include outer-container(90%);
+  }
+
+  .wrapper-condensed {
+    @include outer-container(100%);
+    @include span-columns(12);
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@include media($screen-md) {
+  .col-md-1  { @include span-columns(1);  }
+  .col-md-2  { @include span-columns(2);  }
+  .col-md-3  { @include span-columns(3);  }
+  .col-md-4  { @include span-columns(4);  }
+  .col-md-5  { @include span-columns(5);  }
+  .col-md-6  { @include span-columns(6);  }
+  .col-md-7  { @include span-columns(7);  }
+  .col-md-8  { @include span-columns(8);  }
+  .col-md-9  { @include span-columns(9);  }
+  .col-md-10 { @include span-columns(10); }
+  .col-md-11 { @include span-columns(11); }
+  .col-md-12 { @include span-columns(12); }
+
+  .wrapper {
+    @include outer-container(90%);
+  }
+}

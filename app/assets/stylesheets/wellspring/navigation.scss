@@ -1,0 +1,52 @@
+.side-panel {
+  $sliding-panel-border-color: darken($nav-background-color, 5%);
+  $sliding-panel-background: $nav-background-color;
+  $sliding-panel-color: #fff;
+  $sliding-panel-border: 1px solid $sliding-panel-border-color;
+  $sliding-panel-background-hover: $blue;
+  $sliding-panel-color-hover: #fff;
+  $sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+
+  @include position(fixed, 0px auto 0px 0px);
+  @include size(220px 100%);
+
+  background: $sliding-panel-background;
+  z-index: 999999;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  h1 {
+    color: $sliding-panel-color;
+    padding: 1em;
+    font-size: 1.4em;
+    background-color: darken($sliding-panel-background, 4);
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2em;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li a {
+    border-bottom: $sliding-panel-border;
+    color: $sliding-panel-color;
+    display: block;
+    font-size: 0.9em;
+    padding: 1em;
+    text-decoration: none;
+
+    &:focus {
+      background: rgba(255,255,255,0.1);
+    }
+
+    &:hover {
+      color: #ddd;
+      background: rgba(255,255,255,0.1);
+    }
+  }
+}

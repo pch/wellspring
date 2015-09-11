@@ -1,0 +1,48 @@
+
+.table, .wiki table {
+  border-collapse: separate;
+  margin: ($base-line-height / 2) 0;
+  table-layout: auto;
+  width: 100%;
+
+  th {
+    border-bottom: 1px solid darken($base-border-color, 5%);
+    font-weight: bold;
+    padding: ($base-line-height / 2) 0;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 1px solid $base-border-color;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr, td, th {
+    vertical-align: middle;
+    padding: 10px;
+  }
+
+  & > tbody > tr:nth-child(even) > td,
+  & > tbody > tr:nth-child(even) > th {
+    background-color: #f5f5f5;
+  }
+
+
+  td.actions a,
+  td.actions span {
+    opacity: 0;
+  }
+
+
+  tr:hover td.actions a,
+  tr:hover td.actions span {
+    opacity: 1;
+  }
+
+  a.destroy {
+    color: red;
+  }
+}

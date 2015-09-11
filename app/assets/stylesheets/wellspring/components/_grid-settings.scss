@@ -1,0 +1,17 @@
+@import "bourbon/bourbon"; // or "neat-helpers" when in Rails
+@import "neat/neat-helpers"; // or "neat-helpers" when in Rails
+
+$column: 60px;
+$gutter: 20px;
+$grid-columns: 12;
+$max-width: 960px;
+
+// Responsive Breakpoints
+$screen-xs: new-breakpoint(max-width 480px, 4);
+$screen-sm: new-breakpoint(min-width 481px max-width 768px, 6);
+$screen-md: new-breakpoint(min-width 769px max-width 992px, 8);
+//$screen-lg: new-breakpoint(max-width 1200px 12);
+
+$visual-grid: false;
+$visual-grid-opacity: 0.2;
+$visual-grid-index: front;

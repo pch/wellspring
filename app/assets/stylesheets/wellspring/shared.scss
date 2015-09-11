@@ -1,0 +1,44 @@
+/* =Global styles
+======================================================================= */
+
+::-moz-selection {
+  background-color: $blue;
+  color: #fff;
+}
+
+::selection {
+  background-color: $blue;
+  color: #fff;
+}
+
+body {
+  line-height: $base-line-height;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+h1 {-webkit-font-smoothing: antialiased; color: #222; font-family: "Helvetica Neue"; font-weight: bold;}
+
+h4 a {
+  color: $sidenav-link-color;
+}
+
+img.loading {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+.content-wrapper {
+  @include clearfix;
+  margin-left: 260px;
+  padding: 50px 0;
+}
+
+textarea {
+  height: 300px;
+  font-family: monospace;
+}
