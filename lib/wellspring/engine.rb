@@ -4,5 +4,7 @@ module Wellspring
 
     require 'jquery-rails'
     require 'font-awesome-rails'
+    require 'redcarpet'
+    require 'pygments'
   end
 end

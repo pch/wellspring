@@ -13,7 +13,7 @@
   <%= @entry.slug %>
 </p>
 
-<% @entry.class.content_attributes.each do |attr_name, class_name| %>
+<% @entry.class.content_attributes.each do |attr_name, attr_type| %>
   <p>
     <strong><%= attr_name %>:</strong>
     <%= @entry.send(attr_name.to_sym) %>
