@@ -24,6 +24,16 @@ class BlogPost < Wellspring::Entry
   content_attr :body
 end
 
+class WellspringUser; end
+
 Wellspring.configure do |config|
   config.content_classes = %w(BlogPost)
+
+  config.current_user_lookup do
+    session[:logged_in].present? ? WellspringUser.new : nil
+  end
+
+  config.sign_in_url do
+    '/login'
+  end
 end

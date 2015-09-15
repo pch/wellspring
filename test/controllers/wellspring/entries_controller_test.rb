@@ -5,6 +5,15 @@ module Wellspring
     setup do
       @entry = wellspring_entries(:sample)
       @routes = Engine.routes
+
+      session[:logged_in] = true
+    end
+
+    test "should redirect to sign_in_url if not logged in" do
+      session[:logged_in] = false
+
+      get :index, content_class: 'BlogPost'
+      assert_redirected_to '/login'
     end
 
     test "should get index" do
