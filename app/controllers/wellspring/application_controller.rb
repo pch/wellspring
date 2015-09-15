@@ -10,7 +10,7 @@ module Wellspring
       end
       @current_user
     end
-    helper_method :user
+    helper_method :current_user
 
     def authenticate_user
       return if current_user
