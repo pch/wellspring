@@ -24,4 +24,6 @@ class BlogPost < Wellspring::Entry
   content_attr :body
 end
 
-Wellspring.content_classes = %w(BlogPost)
+Wellspring.configure do |config|
+  config.content_classes = %w(BlogPost)
+end

@@ -1,5 +1,7 @@
 module Wellspring
   class Entry < ActiveRecord::Base
+    include Wellspring::Concerns::Searchable
+
     scope :published, -> { where('published_at <= ?', Time.zone.now) }
 
     validates :title, presence: true

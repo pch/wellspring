@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831131759) do
+ActiveRecord::Schema.define(version: 20150911135536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,17 @@ ActiveRecord::Schema.define(version: 20150831131759) do
   add_index "wellspring_entries", ["slug"], name: "index_wellspring_entries_on_slug", using: :btree
   add_index "wellspring_entries", ["type"], name: "index_wellspring_entries_on_type", using: :btree
   add_index "wellspring_entries", ["user_id"], name: "index_wellspring_entries_on_user_id", using: :btree
+
+  create_table "wellspring_entry_search_data", force: :cascade do |t|
+    t.integer  "entry_id"
+    t.string   "attr_name"
+    t.tsvector "search_data"
+    t.text     "raw_data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "wellspring_entry_search_data", ["entry_id"], name: "index_wellspring_entry_search_data_on_entry_id", using: :btree
+  add_index "wellspring_entry_search_data", ["search_data"], name: "idx_search_data", using: :gin
 
 end
