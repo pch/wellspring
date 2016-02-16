@@ -3,8 +3,11 @@ module Wellspring
     isolate_namespace Wellspring
 
     require 'jquery-rails'
-    require 'font-awesome-rails'
+    require 'dropzonejs-rails'
     require 'redcarpet'
-    require 'pygments'
+    require 'carrierwave'
+
+    require 'bourbon'
+    require 'neat'
   end
 end

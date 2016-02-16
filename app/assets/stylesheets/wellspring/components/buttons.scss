@@ -43,27 +43,6 @@
   width: 100%;
 }
 
-.btn-facebook.btn {
-  background-color: #3b5998;
-  background-image: linear-gradient(-1deg, #3B5999 0%, #4364AB 100%);
-  border: 1px solid #3B5895;
-}
-
-.btn-facebook.btn:hover {
-  border-color: #3b5998;
-  border-bottom-color: darken(#3b5998, 10%);
-  background-color: lighten(#3b5998, 5%);
-  color: #fff
-}
-
-a.btn > .fa {
-  font-size: 1.6em;
-  position: absolute;
-  left: 20px;
-  top: 5px;
-}
-
-
 .btn.btn-secondary {
   border: none;
   background: #34C849;

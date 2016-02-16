@@ -1,0 +1,95 @@
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a {
+  display: block;
+  padding: 15px 14px;
+}
+
+.dropdown > a .caret {
+  font-size: 10px;
+}
+
+.dropdown ul {
+  background: $nav-background-color;
+  padding: 0 0 10px 0;
+  position: absolute;
+  left: 0px;
+  top: auto;
+  width: 200px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+  z-index: 999;
+
+  border-bottom-color: rgb(119, 119, 119);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: none;
+  border-bottom-width: 0px;
+  border-left-color: rgb(119, 119, 119);
+  border-left-style: none;
+  border-left-width: 0px;
+  border-right-color: rgb(119, 119, 119);
+  border-right-style: none;
+  border-right-width: 0px;
+  border-top-color: rgb(119, 119, 119);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-style: none;
+  border-top-width: 0px;
+}
+
+.dropdown ul li {
+  display: block;
+  color: #fff;
+}
+
+.dropdown ul li.separate {
+  margin: 4px 0 0 0;
+  padding: 4px 0 0 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.dropdown ul li a {
+  display: block;
+  padding: 5px 15px;
+}
+
+
+.dropdown:hover ul,
+.dropdown:target {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown a {
+  color: $nav-link-color;
+}
+
+.dropdown a:hover {
+  color: $nav-link-color-active;
+}
+
+
+.dropdown ul li a:hover {
+  color: #ddd;
+  background: rgba(255,255,255,0.1);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.dropdown ul li a:active {
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+}

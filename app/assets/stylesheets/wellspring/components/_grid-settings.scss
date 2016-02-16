@@ -1,5 +1,5 @@
-@import "bourbon/bourbon"; // or "neat-helpers" when in Rails
-@import "neat/neat-helpers"; // or "neat-helpers" when in Rails
+@import "bourbon";
+@import "neat-helpers";
 
 $column: 60px;
 $gutter: 20px;

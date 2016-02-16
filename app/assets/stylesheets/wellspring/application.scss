@@ -14,13 +14,11 @@ $yellow: #FDBD41;
 $red: #FC625D;
 $green: #34C849;
 $blue-gray: #F2F5F8;
-//$blue-gray: #f4f7f8;
-//$blue-gray: #EFF6FC;
 
 $base-background-color: #fff;
 $base-font-color: #414141;
-$base-font-color: #2F3344; // #565a5c;
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-color: #2F3344;
+$base-font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $muted-text-color: #82888a;
 
@@ -35,25 +33,21 @@ $base-link-color: $blue;
 $hover-link-color: darken($base-link-color, 20);
 
 // Navigation
-$nav-background-color: #3A4043;
-$nav-link-color: #A5A5A5;
-$nav-link-color-active: #fff;
+$nav-background-color: #f1f1f1;
+$nav-link-color: #666;
+$nav-link-color-active: $blue;
 $nav-active-highlight-color: #cecfd1;
-
-$sidenav-link-color: #7f8186;
-$sidenav-link-color-hover: $nav-link-color;
 
 $alert-color: $light-yellow;
 $error-color: $light-red;
 $notice-color: lighten(#12A5F4, 40);
 $success-color: $light-green;
 
+$review-bg-color: #FAFAFA;
 
-@import "bourbon/bourbon";
-
+@import "bourbon";
 @import "components/grid-settings";
-
-@import "neat/neat";
+@import "neat";
 @import "components/grid";
 @import "components/base";
 
@@ -61,6 +55,4 @@ $success-color: $light-green;
 @import "shared";
 @import "navigation";
 
-@import "font-awesome.css";
-
-@import "pygments.css";
+@import "dropzone/dropzone";
