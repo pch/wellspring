@@ -8,6 +8,8 @@ module Wellspring
     validates :title, presence: true
     validates :slug, uniqueness: { scope: :type, allow_blank: true }
 
+    before_save :set_slug
+
     def self.content_attr(attr_name, attr_type = :string)
       content_attributes[attr_name] = attr_type
 
@@ -24,6 +26,12 @@ module Wellspring
 
     def self.content_attributes
       @content_attributes ||= {}
+    end
+
+    private
+
+    def set_slug
+      self.slug = title.parameterize if slug.blank?
     end
   end
 end
