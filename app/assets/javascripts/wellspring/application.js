@@ -11,5 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+// require jquery-ui
 //= require jquery_ujs
-//= require_tree .
+//= require dropzone
+//
+//= require ./wellspring
+//= require ./current-user
+//= require ./live-preview
+//=
+//= require ./behaviors/alerts
+//= require ./behaviors/dropzone
+//= require ./behaviors/slider

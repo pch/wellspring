@@ -2,13 +2,16 @@
   background-color: $nav-background-color;
   @include clearfix;
   font-size: 0.9em;
+  height: $nav-height;
+  box-shadow: 0px 0px 5px 0px rgba(56,70,78,0.33);
 }
 
   .nav ul.nav-list {
+    display: flex;
     margin-left: -14px;
     margin-top: 0;
     margin-bottom: 0;
-    padding-left: 0;
+    padding: 0 2rem;
 
     list-style: none;
   }
@@ -17,16 +20,34 @@
       float: left;
     }
 
+    .nav ul.nav-list > li.dropdown > a.nav-item {
+      &:after {
+        content: '\f3d0';
+        font-family: "Ionicons";
+        padding-left: 0.5em;
+      }
+    }
+
   .nav-item {
     color: $nav-link-color;
     position: relative;
     display: block;
-    padding: 15px 14px;
+    line-height: calc(#{$nav-height} - 3px);
+    padding: 0 20px;
+    font-weight: 500;
+
+    i {
+      margin-right: 6px;
+      font-size: 24px;
+      line-height: $nav-height;
+      float: left;
+    }
   }
 
   .nav-item:hover, .nav-item:focus, .nav-item[aria-selected="true"] {
     color: $nav-link-color-active;
     text-decoration: none;
+    border-bottom: 3px $blue solid;
   }
 
   .nav-item[aria-selected="true"]:before {
@@ -39,3 +60,41 @@
     background: $nav-active-highlight-color;
     z-index: 0;
   }
+
+.sliding-panel-content {
+  $sliding-panel-border-color: darken($nav-background-color, 5%);
+  $sliding-panel-background: $nav-background-color;
+  $sliding-panel-color: #fff;
+  $sliding-panel-border: 1px solid $sliding-panel-border-color;
+  $sliding-panel-background-hover: $blue;
+  $sliding-panel-color-hover: #fff;
+  $sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+
+  @include position(absolute, 0px 0px 0px auto);
+  @include size(320px 100%);
+  @include transform(translateX(320px));
+  @include transition(all 0.25s linear);
+
+  background: $sliding-panel-background;
+  z-index: 999;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1em;
+  box-shadow: -1px 0px 5px 0px rgba(56,70,78,0.33);
+
+  &.is-visible {
+    @include transform(translateX(0));
+  }
+}
+
+.sliding-panel-fade-screen {
+  @include position(fixed, 0px 0px 0px 0px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 998;
+
+  &.is-visible {
+    opacity: 0.4;
+    visibility: visible;
+  }
+}

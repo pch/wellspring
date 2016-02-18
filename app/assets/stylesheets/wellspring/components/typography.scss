@@ -6,6 +6,7 @@ body {
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
+  font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -49,7 +50,6 @@ p:first-child {
 }
 
 a {
-  @include transition(color 0.1s linear);
   color: $base-link-color;
   text-decoration: none;
 

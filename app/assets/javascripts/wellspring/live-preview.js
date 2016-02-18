@@ -23,6 +23,9 @@ Wellspring.LivePreview = {
 
   initialize: function() {
     $(document).on('keyup', this.selectors.textarea, Wellspring.Utils.debounce(this.generatePreview.bind(this), 200));
+    $(document).ready(function() {
+      $(this.selectors.textarea).keyup();
+    }.bind(this));
   },
 
   generatePreview: function(event) {
@@ -38,6 +41,7 @@ Wellspring.LivePreview = {
 
       success: function(data) {
         preview.html(data);
+        $(document).trigger("pageUpdated", {});
       }
     });
   }

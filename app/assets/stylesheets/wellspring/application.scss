@@ -3,7 +3,7 @@
 $em-base: 14px;
 
 // Colors
-$blue: #3D8EC5;
+$blue: #328ad6;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #DDD;
@@ -16,9 +16,9 @@ $green: #34C849;
 $blue-gray: #F2F5F8;
 
 $base-background-color: #fff;
-$base-font-color: #414141;
-$base-font-color: #2F3344;
+$base-font-color: #262626;
 $base-font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$form-font-family: "Fira Mono", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $muted-text-color: #82888a;
 
@@ -33,8 +33,8 @@ $base-link-color: $blue;
 $hover-link-color: darken($base-link-color, 20);
 
 // Navigation
-$nav-background-color: #f1f1f1;
-$nav-link-color: #666;
+$nav-background-color: #fafafa;
+$nav-link-color: #262626;
 $nav-link-color-active: $blue;
 $nav-active-highlight-color: #cecfd1;
 
@@ -45,14 +45,16 @@ $success-color: $light-green;
 
 $review-bg-color: #FAFAFA;
 
+$nav-height: 55px;
+$form-title-height: 70px;
+$bottom-toolbar-height: 40px;
+
 @import "bourbon";
-@import "components/grid-settings";
-@import "neat";
-@import "components/grid";
 @import "components/base";
 
 // Application-specific
 @import "shared";
 @import "navigation";
+@import "entries";
 
 @import "dropzone/dropzone";
