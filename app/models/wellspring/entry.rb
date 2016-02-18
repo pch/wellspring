@@ -1,6 +1,7 @@
 module Wellspring
   class Entry < ActiveRecord::Base
     include Wellspring::Concerns::Searchable
+    include Wellspring::Concerns::Taggable
 
     scope :published, -> { where('published_at <= ?', Time.zone.now) }
 
