@@ -2,35 +2,33 @@
 <html>
 <head>
   <title>Wellspring</title>
+
+  <%= javascript_tag do %>
+    var Wellspring = {};
+
+    Wellspring.imageUploadPath = '<%= image_upload_path %>';
+  <% end %>
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
   <%= stylesheet_link_tag    "wellspring/application", media: "all" %>
   <%= javascript_include_tag "wellspring/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <nav class="side-panel">
-    <h1>Wellspring</h1>
+<body class="<%= body_class %>">
+  <%= render partial: "wellspring/shared/navbar" %>
 
-    <ul>
-      <li>
-        <%= link_to wellspring.root_path do %>
-          <i class="fa fa-dashboard"></i> Dashboard
-        <% end %>
-      </li>
-    </ul>
+  <div class="wrapper wrapper-flash">
+    <%= render partial: "wellspring/shared/flash_messages", flash: flash %>
+  </div>
 
-    <ul>
-      <% Wellspring.configuration.content_classes.each do |class_name| %>
-        <li>
-          <%= link_to class_name.tableize.titleize, entries_path(content_class: class_name.tableize) %>
-        </li>
-      <% end %>
-    </ul>
-  </nav>
-
-  <div class="content-wrapper">
-    <div class="wrapper wrapper-flash">
-      <%= render partial: "wellspring/shared/flash_messages", flash: flash %>
-    </div>
+  <div class="main-content">
+    <% if content_for?(:heading) %>
+      <section id ="head">
+        <%= yield(:heading) %>
+      </section>
+    <% end %>
 
     <%= yield %>
   </div>
