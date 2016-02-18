@@ -1,0 +1,30 @@
+<% content_for :heading do %>
+  <h1>Images</h1>
+<% end %>
+
+
+<table class="table space-4">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td>
+          <%= link_to wellspring.image_path(image) do %>
+            <%= image_tag image.image, width: 100 %>
+          <% end %>
+        </td>
+        <td><%= image.image.file.filename %></td>
+        <td><%= time_ago_in_words image.created_at %> ago</td>
+        <td><%= link_to 'Destroy', wellspring.image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
