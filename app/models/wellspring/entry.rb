@@ -31,7 +31,7 @@ module Wellspring
     private
 
     def set_slug
-      self.slug = title.parameterize if slug.blank?
+      self.slug = title.parameterize if slug.blank? && title.present?
     end
   end
 end
