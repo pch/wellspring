@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "autoprefixer-rails"
   s.add_dependency "simple_form"
   s.add_dependency "bourbon"
-  s.add_dependency "neat"
 
   # Files & images
   s.add_dependency "dropzonejs-rails" # fancy file uploads

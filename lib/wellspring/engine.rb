@@ -8,6 +8,5 @@ module Wellspring
     require 'carrierwave'
 
     require 'bourbon'
-    require 'neat'
   end
 end
