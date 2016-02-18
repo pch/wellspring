@@ -18,7 +18,8 @@ Wellspring.Utils = {
 Wellspring.LivePreview = {
   selectors: {
     textarea: 'form textarea',
-    preview:  '#live-preview'
+    preview:  '#live-preview',
+    wordCount: '#word-count'
   },
 
   initialize: function() {
@@ -31,6 +32,7 @@ Wellspring.LivePreview = {
   generatePreview: function(event) {
     var preview = $(this.selectors.preview);
     var previewUrl = preview.attr('data-preview-url');
+    var wordCount = $(this.selectors.wordCount);
 
     $.ajax({
       type: 'POST',
@@ -41,6 +43,11 @@ Wellspring.LivePreview = {
 
       success: function(data) {
         preview.html(data);
+        var words = preview.text().match(/(\w+)/g);
+        if (words) {
+          wordCount.html(words.length);
+        }
+
         $(document).trigger("pageUpdated", {});
       }
     });

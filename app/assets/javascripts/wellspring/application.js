@@ -20,5 +20,5 @@
 //= require ./live-preview
 //=
 //= require ./behaviors/alerts
-//= require ./behaviors/dropzone
+// require ./behaviors/dropzone
 //= require ./behaviors/slider
