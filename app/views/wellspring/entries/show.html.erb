@@ -1,29 +1,33 @@
-<p>
-  <strong>Content class:</strong>
-  <%= @entry.type %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @entry.slug %>
-</p>
-
-<% @entry.class.content_attributes.each do |attr_name, attr_type| %>
-  <p>
-    <strong><%= attr_name %>:</strong>
-    <%= @entry.send(attr_name.to_sym) %>
-  </p>
+<% content_for :heading do %>
+  <h1><%= @entry.title %></h1>
+  <%= link_to "Edit #{content_class.titleize}", edit_content_entry_path(@entry), class: 'btn btn-primary space-2' %>
 <% end %>
 
-<p>
-  <strong>Author name:</strong>
-  <%= @entry.author_name %>
-</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Slug:</td>
+      <td><%= @entry.slug %></td>
+    </tr>
+    <tr>
+      <td>Author name:</td>
+      <td><%= @entry.author_name %></td>
+    </tr>
 
-<%= link_to 'Edit', edit_content_entry_path(@entry) %> |
-<%= link_to 'Back', content_entries_path %>
+    <tr>
+      <td>Tags:</td>
+      <td><%= @entry.tags.join(', ') %></td>
+    </tr>
+
+    <% @entry.class.content_attributes.each do |attr_name, attr_type| %>
+      <tr>
+        <td><%= attr_name.to_s.titleize %>:</td>
+        <td><%= @entry.send(attr_name.to_sym) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= markdown @entry.body %>
+</div>

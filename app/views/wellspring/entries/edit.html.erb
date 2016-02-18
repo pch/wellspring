@@ -1,6 +1,53 @@
-<h1>Editing <%= content_class.titleize %></h1>
+<%= simple_form_for(@entry, as: :entry, url: @entry.persisted? ? content_entry_path(@entry) : entries_path) do |f| %>
+  <div class="title-container">
+    <div class="col field">
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </div>
+    <div class="col settings">
+      <%= link_to '#', 'aria-selected' => false, data: { behavior: 'show-slider' }, class: 'js-menu-trigger sliding-panel-button post-settings-btn' do %>
+        <i class="ion-ios-gear-outline"></i>
+      <% end %>
 
-<%= render 'form' %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  </div>
 
-<%= link_to 'Show', content_entry_path(@entry) %> |
-<%= link_to 'Back', content_entries_path %>
+  <div class="editor-container">
+    <div class="col split-view">
+      <%= f.hidden_field :type, value: @entry.type %>
+
+      <% @entry.class.content_attributes.each do |attr_name, attr_type| %>
+        <%= f.input attr_name, as: attr_type %>
+      <% end %>
+
+      <% if @entry.class.content_attributes.any? %>
+        <hr/>
+      <% end %>
+
+      <%= f.input :body, label: false %>
+
+      <nav class="js-menu sliding-panel-content">
+        <%= f.input :raw_tags %>
+        <%= f.input :slug %>
+        <%= f.input :author_name %>
+        <%= f.input :published_at, as: :string %>
+      </nav>
+
+      <div class="js-menu-screen sliding-panel-fade-screen"></div>
+    </div>
+
+    <div class="col split-view preview">
+      <div id="live-preview" data-preview-url="<%= preview_path %>"></div>
+    </div>
+  </div>
+
+  <div class="editor-toolbar">
+    <div class="col split-view">
+      Editor
+    </div>
+
+    <div class="col split-view preview">
+      Preview
+    </div>
+  </div>
+<% end %>
