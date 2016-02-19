@@ -16,7 +16,6 @@
 //= require dropzone
 //
 //= require ./wellspring
-//= require ./current-user
 //= require ./live-preview
 //=
 //= require ./behaviors/alerts
