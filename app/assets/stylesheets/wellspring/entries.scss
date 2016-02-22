@@ -111,36 +111,3 @@ img[src=""] {
   border-image: 0;
   position: relative;
 }
-
-.photoset {
-  display: flex;
-  width: 100%;
-  flex-flow: row wrap;
-  justify-content: space-between;
-
-  figure {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 1rem;
-  }
-
-  figure img, figure a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .photo-col-2 {
-    width: calc(50% - 0.5rem)
-  }
-
-  .photo-col-3 {
-    width: calc(33.33333% - .66667rem)
-  }
-
-  .photo-col-4 {
-    width: calc(25% - .5rem)
-  }
-}
-
-
