@@ -50,7 +50,7 @@ module Wellspring
     end
 
     def entry_params
-      allowed_attrs = %i(id type title slug published_at body raw_tags author_name)
+      allowed_attrs = %i(id type title slug published_at body raw_tags author_name parent_id)
         .concat(content_class.constantize.content_attributes.keys)
 
       params.require(:entry).permit(*allowed_attrs)

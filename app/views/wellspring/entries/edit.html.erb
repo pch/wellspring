@@ -38,6 +38,7 @@
 
         <%= f.input :raw_tags %>
         <%= f.input :slug %>
+        <%= f.input :parent_id, collection: Wellspring::Entry.all %>
         <%= f.input :author_name %>
         <%= f.input :published_at, as: :string %>
       </nav>
