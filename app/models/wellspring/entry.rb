@@ -8,6 +8,7 @@ module Wellspring
     validates :title, presence: true
     validates :slug, uniqueness: { scope: :type, allow_blank: true }
 
+    before_create :set_token
     before_save :set_slug
 
     def self.content_attr(attr_name, attr_type = :string)
@@ -29,6 +30,10 @@ module Wellspring
     end
 
     private
+
+    def set_token
+      self.token ||= SecureRandom.hex(5)
+    end
 
     def set_slug
       self.slug = title.parameterize if slug.blank? && title.present?

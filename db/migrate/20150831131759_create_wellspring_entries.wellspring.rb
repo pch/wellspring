@@ -4,6 +4,7 @@ class CreateWellspringEntries < ActiveRecord::Migration
       t.string :type, index: true
       t.string :title
       t.string :slug, index: true
+      t.string :token, index: true
       t.text :body
       t.json :payload
       t.integer :user_id, index: true
