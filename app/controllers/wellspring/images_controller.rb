@@ -11,8 +11,10 @@ module Wellspring
     end
 
     def create
-      @image = Image.new(image: params[:file])
+      attrs = { image: params[:file], entry_id: params[:entry_id] }
+      attrs.merge!(hero: params[:hero]) if params[:hero].present?
 
+      @image = Image.new(attrs)
       if @image.save
         render plain: @image.image.url, :status => 200
       else

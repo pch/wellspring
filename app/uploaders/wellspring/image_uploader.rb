@@ -8,10 +8,19 @@ module Wellspring
     # Override the directory where uploaded files will be stored.
     # This is a sensible default for uploaders that are meant to be mounted:
     def store_dir
-      "images/#{model.id}"
+      "images/#{model.entry.token}"
     end
 
-    process :store_dimensions
+    def filename
+      if original_filename.present?
+        "#{model.token}#{::File.extname(original_filename).downcase}"
+      else
+        super
+      end
+    end
+
+    process :store_metadata
+    process :fix_rotation
 
     def extension_whitelist
       %w(jpg jpeg gif png ico)
@@ -19,17 +28,21 @@ module Wellspring
 
     protected
 
-    def store_dimensions
+    def store_metadata
       if file && model
-        model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
+        img = ::MiniMagick::Image.open(file.file)
+
+        model.width, model.height = img[:dimensions]
+        model.exif = img.exif
+
+        model.content_type = file.content_type
+        model.file_size    = file.size
       end
     end
 
-    # strips EXIF and other metadata from files
-    def strip
+    def fix_rotation
       manipulate! do |img|
-        img.strip
-        img = yield(img) if block_given?
+        img = img.auto_orient
         img
       end
     end
