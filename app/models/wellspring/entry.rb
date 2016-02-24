@@ -4,6 +4,8 @@ module Wellspring
     include Wellspring::Concerns::Taggable
     include Wellspring::Concerns::Images
 
+    belongs_to :user
+
     scope :published, -> { where('published_at <= ?', Time.zone.now) }
 
     validates :title, presence: true

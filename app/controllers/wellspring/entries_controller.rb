@@ -12,7 +12,7 @@ module Wellspring
     end
 
     def new
-      @entry = Entry.new(type: content_class)
+      @entry = Entry.new(type: content_class, user: current_user)
       @entry.save!(validate: false)
       redirect_to edit_content_entry_path(@entry)
     end

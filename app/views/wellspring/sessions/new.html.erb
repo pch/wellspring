@@ -1,0 +1,16 @@
+<%= form_tag(sessions_path, class: 'no-labels') do %>
+  <div class="panel panel-dark space-2 space-bottom-2">
+    <div class="panel-body text-center text-muted">
+      <% if flash[:alert].present? %>
+        <p class="form-error-message"><%= flash[:alert] %></p>
+      <% end %>
+
+      <fieldset>
+        <div class="field"><%= text_field_tag :email, params[:email], placeholder: 'E-mail' %></div>
+        <div class="field"><%= password_field_tag :password, nil, placeholder: 'Password' %></div>
+      </fieldset>
+
+      <%= submit_tag 'Sign in', class: 'btn btn-primary full-width' %>
+    </div>
+  </div>
+<% end %>

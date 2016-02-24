@@ -30,6 +30,19 @@
               Images
             <% end %>
           </li>
+
+          <li class="dropdown right">
+            <%= link_to "#", class: 'nav-item', 'aria-selected' => false do %>
+              <i class="ion-ios-person"></i>
+              <%= current_user.name %>
+            <% end %>
+
+            <ul>
+              <li>
+                <%= link_to "Sign out", signout_path %>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>

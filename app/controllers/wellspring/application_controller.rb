@@ -15,7 +15,11 @@ module Wellspring
     def authenticate_user
       return if current_user
 
-      redirect_to instance_eval(&Wellspring.configuration.sign_in_url)
+      redirect_to signin_url
+    end
+
+    def default_user_lookup
+      Wellspring::User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token].present?
     end
 
     def content_entries_path

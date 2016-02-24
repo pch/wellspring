@@ -16,8 +16,8 @@
     list-style: none;
   }
 
-    .nav ul.nav-list > li {
-      float: left;
+    .nav ul.nav-list > li.right {
+      margin-left: auto;
     }
 
     .nav ul.nav-list > li.dropdown > a.nav-item {
@@ -41,6 +41,7 @@
       font-size: 24px;
       line-height: $nav-height;
       float: left;
+      margin-top: -2px;
     }
   }
 
