@@ -46,7 +46,7 @@ module Wellspring
     private
 
     def set_entry
-      @entry = Entry.find(params[:id])
+      @entry = Entry.find_by_token!(params[:id])
     end
 
     def entry_params

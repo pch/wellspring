@@ -35,7 +35,7 @@ module Wellspring
     private
 
     def set_token
-      self.token ||= SecureRandom.hex(5)
+      self.token ||= SecureRandom.base58(6)
     end
 
     def set_slug

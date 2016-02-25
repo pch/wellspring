@@ -28,7 +28,7 @@ module Wellspring
     helper_method :content_entries_path
 
     def content_entry_path(entry)
-      entry_path(entry, content_class: content_class.tableize)
+      entry_path(id: entry.token, content_class: content_class.tableize)
     end
     helper_method :content_entry_path
 
@@ -38,7 +38,7 @@ module Wellspring
     helper_method :new_content_entry_path
 
     def edit_content_entry_path(entry)
-      edit_entry_path(entry, content_class: content_class.tableize)
+      edit_entry_path(id: entry.token, content_class: content_class.tableize)
     end
     helper_method :edit_content_entry_path
   end
