@@ -9,7 +9,7 @@ module Wellspring
     private
 
     def set_token
-      self.token ||= SecureRandom.hex(5)
+      self.token ||= (Time.now.to_f.round(3) * 1000).to_i
     end
   end
 end
