@@ -4,9 +4,12 @@ module Wellspring
     include Wellspring::Concerns::Taggable
     include Wellspring::Concerns::Images
 
+    enum status: [ :fresh, :draft, :published ]
+
     belongs_to :user
 
-    scope :published, -> { where('published_at <= ?', Time.zone.now) }
+    scope :drafts, -> { where(status: :draft) }
+    scope :published, -> { where(status: :published).where('published_at <= ?', Time.zone.now) }
 
     validates :title, presence: true
     validates :slug, uniqueness: { scope: :type, allow_blank: true }
@@ -30,6 +33,10 @@ module Wellspring
 
     def self.content_attributes
       @content_attributes ||= {}
+    end
+
+    def self.clean_up_unsaved_entries!
+      where(status: :fresh).where('created_at < ?', 2.days.ago).destroy_all
     end
 
     private

@@ -5,7 +5,8 @@ module Wellspring
     before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
     def index
-      @entries = Entry.where(type: content_class)
+      Entry.clean_up_unsaved_entries!
+      @entries = Entry.drafts.where(type: content_class)
     end
 
     def show
@@ -32,6 +33,9 @@ module Wellspring
 
     def update
       if @entry.update(entry_params)
+        @entry.update_attribute(:status, :draft) if params[:draft].present?
+        @entry.update_attribute(:status, :published) if params[:publish].present?
+
         redirect_to content_entry_path(@entry), notice: 'Entry was successfully updated.'
       else
         render :edit

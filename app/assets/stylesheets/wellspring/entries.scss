@@ -1,5 +1,5 @@
 // Entry form
-body.wellspring-entries-edit {
+body.wellspring-entries-edit, body.wellspring-entries-update {
   .main-content {
     padding: 0;
     overflow-x: hidden;
@@ -31,7 +31,7 @@ div.title-container {
   }
 
   .col {
-    width: 20%;
+    width: 40%;
   }
 
   .col.settings {

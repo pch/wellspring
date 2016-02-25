@@ -2,13 +2,15 @@
   <div class="title-container">
     <div class="col field">
       <%= f.text_field :title, placeholder: 'Title' %>
+      <%= f.error :title %>
     </div>
     <div class="col settings">
       <%= link_to '#', 'aria-selected' => false, data: { behavior: 'show-slider' }, class: 'js-menu-trigger sliding-panel-button post-settings-btn' do %>
         <i class="ion-ios-gear-outline"></i>
       <% end %>
 
-      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= f.submit "Save Draft", name: "draft", class: "btn btn-primary" %>
+      <%= f.submit "Publish", name: "publish", class: "btn btn-primary" %>
     </div>
   </div>
 

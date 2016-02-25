@@ -10,7 +10,7 @@ class CreateWellspringEntries < ActiveRecord::Migration
       t.integer :user_id, index: true
       t.string :author_name
       t.datetime :published_at
-      t.boolean :draft, default: true, index: true
+      t.integer :status, default: 0, index: true
       t.text :tags, array: true, default: []
       t.integer :parent_id, index: true
 
