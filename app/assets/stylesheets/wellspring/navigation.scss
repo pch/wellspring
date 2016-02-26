@@ -64,7 +64,7 @@
 
 .sliding-panel-content {
   $sliding-panel-border-color: darken($nav-background-color, 5%);
-  $sliding-panel-background: $nav-background-color;
+  $sliding-panel-background: #fff;
   $sliding-panel-color: #fff;
   $sliding-panel-border: 1px solid $sliding-panel-border-color;
   $sliding-panel-background-hover: $blue;
@@ -89,7 +89,7 @@
 }
 
 .sliding-panel-fade-screen {
-  @include position(fixed, 0px 0px 0px 0px);
+  @include position(absolute, 0px 0px 0px 0px);
   opacity: 0;
   visibility: hidden;
   z-index: 998;

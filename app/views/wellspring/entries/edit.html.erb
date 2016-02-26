@@ -29,11 +29,19 @@
       <%= f.input :body, label: false, placeholder: "Start typing here...", input_html: { data: { behavior: 'text-dropzone live-preview' } } %>
 
       <nav class="js-menu sliding-panel-content">
-        <div>
-          <h4>Hero image</h4>
-          <div data-behavior="hero" class="hero-dropzone">
+        <div class="row">
+          <label>Hero image</label>
+          <div data-behavior="hero" class="hero-dropzone input">
             <% if @entry.hero_image.present? %>
-              <%= image_tag @entry.hero_image.image.url %>
+              <div class="dz-preview dz-file-preview">
+                <div class="dz-details">
+                  <img src="<%= @entry.hero_image.image.url %>" data-dz-thumbnail />
+                </div>
+                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress style="width: 100%"></span></div>
+                <%= link_to image_path(@entry.hero_image), method: :delete, title: "Remove file", class: 'remove-file' do %>
+                  <i class="ion-ios-trash-outline"></i>
+                <% end %>
+               </div>
             <% end %>
           </div>
         </div>

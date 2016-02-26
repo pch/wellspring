@@ -22,6 +22,13 @@ body {
   padding-bottom: 100px;
 }
 
+.wrapper-flash {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  width: 500px;
+}
+
 .main-content {
   padding: 2rem;
 }
@@ -38,5 +45,12 @@ body {
 
   a.btn {
     float: right;
+  }
+}
+
+body.plain {
+  form {
+    width: 30em;
+    margin: 100px auto;
   }
 }
