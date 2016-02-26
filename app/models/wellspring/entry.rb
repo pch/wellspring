@@ -3,6 +3,7 @@ module Wellspring
     include Wellspring::Concerns::Searchable
     include Wellspring::Concerns::Taggable
     include Wellspring::Concerns::Images
+    include Wellspring::Concerns::Family
 
     enum status: [ :fresh, :draft, :published ]
 

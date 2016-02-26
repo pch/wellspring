@@ -26,7 +26,7 @@
         <hr/>
       <% end %>
 
-      <%= f.input :body, label: false, input_html: { data: { behavior: 'text-dropzone live-preview' } } %>
+      <%= f.input :body, label: false, placeholder: "Start typing here...", input_html: { data: { behavior: 'text-dropzone live-preview' } } %>
 
       <nav class="js-menu sliding-panel-content">
         <div>
@@ -38,9 +38,11 @@
           </div>
         </div>
 
-        <%= f.input :raw_tags %>
+        <%= f.input :raw_tags, label: "Tags" %>
         <%= f.input :slug %>
-        <%= f.input :parent_id, collection: Wellspring::Entry.all %>
+        <% if @entry.can_have_parent? %>
+          <%= f.input :parent_id, collection: @entry.possible_parents %>
+        <% end %>
         <%= f.input :author_name %>
         <%= f.input :published_at, as: :string %>
       </nav>
