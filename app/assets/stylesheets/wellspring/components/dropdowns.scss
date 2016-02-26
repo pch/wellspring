@@ -59,8 +59,7 @@
 }
 
 
-.dropdown:hover ul,
-.dropdown:target {
+.dropdown ul.visible {
   display: block;
   opacity: 1;
   visibility: visible;

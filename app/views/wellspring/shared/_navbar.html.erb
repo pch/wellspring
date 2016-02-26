@@ -9,7 +9,7 @@
             <% end %>
           </li>
 
-          <li class="dropdown">
+          <li class="dropdown" data-behavior="dropdown">
             <%= link_to '#', class: 'nav-item', 'aria-selected' => false do %>
               <i class="ion-ios-photos-outline"></i>
               Entries
@@ -31,7 +31,7 @@
             <% end %>
           </li>
 
-          <li class="dropdown right">
+          <li class="dropdown right" data-behavior="dropdown">
             <%= link_to "#", class: 'nav-item', 'aria-selected' => false do %>
               <i class="ion-ios-person"></i>
               <%= current_user.name %>

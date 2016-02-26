@@ -11,3 +11,4 @@
 //= require ./behaviors/text-dropzone
 //= require ./behaviors/hero
 //= require ./behaviors/slider
+//= require ./behaviors/dropdown
