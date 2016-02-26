@@ -11,6 +11,7 @@ module Wellspring
 
     scope :drafts, -> { where(status: :draft) }
     scope :published, -> { where(status: :published).where('published_at <= ?', Time.zone.now) }
+    scope :drafts_and_published, -> { where(status: [:draft, :published]) }
 
     validates :title, presence: true
     validates :slug, uniqueness: { scope: :type, allow_blank: true }

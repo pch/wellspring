@@ -6,7 +6,7 @@ module Wellspring
 
     def index
       Entry.clean_up_unsaved_entries!
-      @entries = Entry.drafts.where(type: content_class)
+      @entries = Entry.drafts_and_published.where(type: content_class)
     end
 
     def show
