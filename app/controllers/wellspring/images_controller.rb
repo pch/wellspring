@@ -25,7 +25,7 @@ module Wellspring
     def destroy
       @image = Image.find(params[:id])
       @image.destroy
-      redirect_to images_path, notice: 'Image was successfully destroyed.'
+      redirect_to :back, notice: 'Image was successfully destroyed.'
     end
   end
 end
