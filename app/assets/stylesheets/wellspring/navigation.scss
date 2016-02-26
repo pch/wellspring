@@ -48,7 +48,7 @@
   .nav-item:hover, .nav-item:focus, .nav-item[aria-selected="true"] {
     color: $nav-link-color-active;
     text-decoration: none;
-    border-bottom: 3px $blue solid;
+    border-bottom: 3px $nav-link-color-active solid;
   }
 
   .nav-item[aria-selected="true"]:before {

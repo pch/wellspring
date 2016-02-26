@@ -21,22 +21,20 @@
 
 .btn-primary.btn {
   //background-image: linear-gradient(-1deg, #3494F7 0%, #40ABF9 100%);
-  background-color: #3494F7;
-  border: 1px solid #2299E4;
+  background-color: #328ad6;
+  box-shadow: inset 0 0 0 1px #328ad6;
 }
 
 .btn:hover, .btn:focus { text-decoration: none }
 .btn:hover, .btn:focus { color:#fff }
 
 .btn-primary.btn:hover, .btn-primary.btn:focus {
-  //background-image: linear-gradient(-1deg, darken(#3494F7, 5) 0%, darken(#40ABF9, 5) 100%);
-  background-color: darken(#3494F7, 5);
+  background-color: li  ghten(#328ad6, 5);
   color:#fff
 }
 
 .btn-primary.btn:active {
-  //background-image: linear-gradient(-1deg, #40ABF9 0%, #3494F7 100%);
-  background-color: darken(#3494F7, 8);
+  background-color: lighten(#3494F7, 8);
 }
 
 .btn.full-width {

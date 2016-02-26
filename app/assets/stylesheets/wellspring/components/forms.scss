@@ -38,6 +38,10 @@ input, textarea {
   padding:8px 10px;
 }
 
+[type=submit] {
+  font-family: $base-font-family;
+}
+
 .invalid .error {
   color: darken($light-red, 40);
 }
@@ -121,49 +125,8 @@ input[type=checkbox]:checked:before {
   color: lighten($base-font-color, 20);
 }
 
-label.private:after {
-  font-family: FontAwesome;
-  content: "\f023";
-  color: #ea7654;
-  font-size: 12px;
-  margin-left: 5px;
-}
-
 form .cancel {
   padding-left: 20px;
-}
-
-form .or {
-  margin: 1.3em 0;
-
-  span {
-    display: block;
-    margin-top: -18px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #F9F9F9;
-    width: 40px;
-    text-align: center;
-  }
-}
-
-form.no-labels {
-  fieldset {
-    background: #FFFFFF;
-    border: 1px solid #DADADA;
-    box-shadow: 0px 3px 3px 0px rgba(218,218,218,0.50);
-    border-radius: 5px;
-    margin-bottom: 1.5em;
-
-    div.field {
-      border-bottom: 1px solid #DADADA;
-      padding: 5px;
-    }
-
-    input {
-      border: none;
-    }
-  }
 }
 
 form .form-error-message {
