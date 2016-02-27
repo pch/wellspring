@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
   # Files & images
   s.add_dependency "dropzonejs-rails" # fancy file uploads
   s.add_dependency "carrierwave"
-  s.add_dependency "carrierwave-aws"
   s.add_dependency "mini_magick"
 
   s.add_dependency "redcarpet"

@@ -2,6 +2,11 @@ module Wellspring
   class ImageUploader < ::CarrierWave::Uploader::Base
     include ::CarrierWave::MiniMagick
 
+    storage :file
+    # storage :fog
+
+    # Override the directory where uploaded files will be stored.
+    # This is a sensible default for uploaders that are meant to be mounted:
     def store_dir
       "images/#{model.entry.class.name.pluralize.underscore.gsub('_', '-')}/#{model.created_at.to_date.to_s}"
     end
