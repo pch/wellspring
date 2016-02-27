@@ -8,6 +8,7 @@
     <tr>
       <th>Image</th>
       <th>Name</th>
+      <th>Size</th>
       <th>Created at</th>
       <th colspan="2"></th>
     </tr>
@@ -22,6 +23,7 @@
           <% end %>
         </td>
         <td><%= image.image.file.filename %></td>
+        <td><%= number_to_human_size image.image.size %></td>
         <td><%= time_ago_in_words image.created_at %> ago</td>
         <td><%= link_to 'Destroy', wellspring.image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
