@@ -3,7 +3,7 @@ require_dependency "wellspring/application_controller"
 module Wellspring
   class ImagesController < ApplicationController
     def index
-      @images = Image.order('id desc')
+      @images = Image.includes(:entry).order('id desc')
     end
 
     def show
