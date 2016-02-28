@@ -54,23 +54,3 @@
 .btn.btn-secondary:active {
   background: darken(#34C849, 10);
 }
-
-.btn.btn-add {
-  border: 1px solid #FC625D;
-  background: #FC625D;
-  //background-image: linear-gradient(-180deg, #FF7773 0%, #FC625D 100%);
-  border-radius: 5px;
-  font-size: 12px;
-  color: #fff;
-}
-
-.btn.btn-add:hover {
-  //background-image: linear-gradient(-180deg, #FC625D 0%, #FF7773 100%);
-  background-color: #FF7773;
-}
-
-.btn.btn-add:active {
-  //background-image: linear-gradient(-180deg, #FC625D 50%, #FF7773 100%);
-  background: #FC625D;
-}
-
