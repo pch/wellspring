@@ -6,6 +6,7 @@ module Wellspring
     require 'dropzonejs-rails'
     require 'redcarpet'
     require 'carrierwave'
+    require 'thumbor_rails'
 
     require 'bourbon'
   end

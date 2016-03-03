@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "dropzonejs-rails" # fancy file uploads
   s.add_dependency "carrierwave"
   s.add_dependency "mini_magick"
+  s.add_dependency "thumbor_rails"
 
   s.add_dependency "redcarpet"
 
