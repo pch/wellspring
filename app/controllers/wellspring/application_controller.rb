@@ -6,7 +6,7 @@ module Wellspring
 
     def current_user
       unless defined?(@current_user)
-        @current_user = instance_eval(&Wellspring.configuration.current_user_lookup)
+        @current_user = Wellspring::User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token].present?
       end
       @current_user
     end
@@ -16,10 +16,6 @@ module Wellspring
       return if current_user
 
       redirect_to signin_url
-    end
-
-    def default_user_lookup
-      Wellspring::User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token].present?
     end
 
     def content_entries_path
