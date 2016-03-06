@@ -1,3 +1,5 @@
+<% title content_class.tableize.titleize %>
+
 <% content_for :heading do %>
   <h1><%= content_class.tableize.titleize %></h1>
   <%= link_to "New #{content_class.titleize}", new_content_entry_path, class: 'btn btn-primary space-2' %>

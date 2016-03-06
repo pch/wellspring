@@ -1,3 +1,5 @@
+<% title @entry.title %>
+
 <% content_for :heading do %>
   <h1><%= @entry.title %></h1>
   <%= link_to "Edit #{content_class.titleize}", edit_content_entry_path(@entry), class: 'btn btn-primary space-2' %>

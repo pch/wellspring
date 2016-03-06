@@ -1,4 +1,6 @@
-<%= simple_form_for(@entry, as: :entry, url: @entry.persisted? ? content_entry_path(@entry) : entries_path, html: { data: { entry_id: @entry.id } }) do |f| %>
+<% title @entry.fresh? ? "New Entry" : "Editing " + @entry.title %>
+
+<%= simple_form_for(@entry, as: :entry, url: content_entry_path(@entry), html: { data: { entry_id: @entry.id } }) do |f| %>
   <div class="title-container">
     <div class="col field">
       <%= f.text_field :title, placeholder: 'Title' %>
@@ -52,7 +54,7 @@
           <%= f.input :parent_id, collection: @entry.possible_parents %>
         <% end %>
         <%= f.input :author_name %>
-        <%= f.input :published_at, as: :string %>
+        <%= f.input :published_at, as: :datetime %>
       </nav>
 
       <div class="js-menu-screen sliding-panel-fade-screen"></div>
