@@ -30,7 +30,7 @@
 
       <%= f.input :body, label: false, placeholder: "Start typing here...", input_html: { data: { behavior: 'text-dropzone live-preview' } } %>
 
-      <nav class="js-menu sliding-panel-content">
+      <div class="js-menu sliding-panel-content slider">
         <div class="row">
           <label>Hero image</label>
           <div data-behavior="hero" class="hero-dropzone input">
@@ -54,8 +54,9 @@
           <%= f.input :parent_id, collection: @entry.possible_parents %>
         <% end %>
         <%= f.input :author_name %>
+        <%= f.input :meta_description, as: :text %>
         <%= f.input :published_at, as: :datetime %>
-      </nav>
+      </div>
 
       <div class="js-menu-screen sliding-panel-fade-screen"></div>
     </div>

@@ -9,6 +9,7 @@ class CreateWellspringEntries < ActiveRecord::Migration
       t.json :payload
       t.integer :user_id, index: true
       t.string :author_name
+      t.string :meta_description
       t.datetime :published_at
       t.integer :status, default: 0, index: true
       t.text :tags, array: true, default: []
