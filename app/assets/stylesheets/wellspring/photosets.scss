@@ -33,36 +33,30 @@
     }
   }
 
-  .photoset-item:hover a + figcaption {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
   figure {
     margin: 0;
     overflow: hidden;
     position: relative;
     display: block;
     width: auto;
+    height: 100%;
   }
 
   figcaption {
-    background-color: rgba(255, 255, 255, .75);
+    background-color: rgba(0, 0, 0, .65);
     box-sizing: border-box;
     font-size: .75rem;
-    padding: .5rem;
+    padding: .2rem 1rem;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-    transition: all .5s ease-in-out;
+    color: #fff;
+    text-align: left;
   }
 
   img {
     display: block;
     max-width: 100%;
-    transition: all .25s ease-in-out;
   }
 }

@@ -7,8 +7,8 @@ body.wellspring-entries-edit, body.wellspring-entries-update {
 }
 
 form#edit_entry {
-  textarea {
-    min-height: 400px;
+  textarea#entry_body {
+    min-height: 500px;
     border: none;
     padding: 0;
   }
