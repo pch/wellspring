@@ -18,7 +18,7 @@ Wellspring.Photosets = {
           cWidth = $(this).parent('.photoset').width();
 
       var ratios = $pi.map(function () {
-        return $(this).find('img').data('width') / $(this).find('img').data('height');
+        return $(this).find('img').data('ratio');
       }).get();
 
       var sumRatios = 0, sumMargins = 0,

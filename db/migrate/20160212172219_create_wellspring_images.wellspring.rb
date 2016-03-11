@@ -6,6 +6,7 @@ class CreateWellspringImages < ActiveRecord::Migration
       t.string :token, index: true
       t.integer :width
       t.integer :height
+      t.float :ratio
       t.integer :file_size
       t.string  :content_type
       t.boolean :hero, default: false
