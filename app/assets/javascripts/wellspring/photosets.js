@@ -5,11 +5,11 @@ var Wellspring = Wellspring || {};
 // Based heavily on/stolen from: https://medium.com/coding-design/responsive-photosets-7742e6f93d9e
 Wellspring.Photosets = {
   initialize: function() {
-    $(window).on('resize', Wellspring.Utils.debounce(this.align.bind(this), 200));
+    $(window).on('resize', Wellspring.Utils.debounce(this.align.bind(this), 100));
     $(window).on('pageUpdated', this.align.bind(this));
     $(document).ready(function() {
       $(window).resize();
-    })
+    });
   },
 
   align: function(event) {
