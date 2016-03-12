@@ -10,7 +10,7 @@ module Wellspring
 
     # Matches a single image in the Markdown format:
     # ![alt text](/path/to/image.jpg)
-    IMAGE_PATTERN = /\!\[([^\]]*)\]\(([^)]+)\)/
+    IMAGE_PATTERN = /\!\[([^\]]*)\]\(([^)]+)\)(\{([^{]+)\})?/
 
     PHOTOSET_HTML     = '<div class="photoset">%{rows}</div>'
     PHOTOSET_ROW_HTML = '<div class="photoset-row">%{items}</div>'
@@ -45,10 +45,32 @@ module Wellspring
 
     def parse_image(text, callback)
       text.gsub(IMAGE_PATTERN) do
-        item = @presenter.send(callback, src: $2, alt: $1)
+        attrs = parse_special_attributes($4)
+
+        item = @presenter.send(callback, src: $2, alt: $1, attrs: attrs)
         item = item.gsub(/<figcaption>\s?<\/figcaption>/, '') # remove empty captions:
         item.gsub(/^\s+/, '') # remove indentation from the beginning of lines
       end
+    end
+
+    # Parses additional attributes placed within brackets:
+    #
+    # ![](/foo.jpg){.regular #hero lang=fr}
+    # ![](/bar.jpg){.big #the-site data-behavior=lightbox}
+    #
+    # Note: works with images only.
+    def parse_special_attributes(raw_attrs)
+      return {} if raw_attrs.blank?
+      items = raw_attrs.split(/\s+/)
+
+      id      = items.select { |i| i =~ /^#.+/ }.first.gsub('#', '')
+      classes = items.select { |i| i =~ /^\..+/ }.map { |c| c.gsub('.', '') }
+      attrs   = Hash[items.select { |i| i.include?('=') }.map { |i| i.split('=') }]
+
+      attrs.merge({
+        'id' => id,
+        'class' => classes.join(' ')
+      })
     end
   end
 end

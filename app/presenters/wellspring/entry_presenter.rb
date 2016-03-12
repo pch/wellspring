@@ -7,20 +7,20 @@ module Wellspring
       RDiscount.new(text, :smart, :footnotes).to_html.html_safe
     end
 
-    def photoset_item_html(src:, alt:)
+    def photoset_item_html(src:, alt:, attrs:)
       img = images_hash[src.split('/').last]
 
       %Q{
-        <figure class="photoset-item">
+        <figure class="photoset-item #{attr["class"]}">
           <a href="#{src}"><img src="#{src}" alt="#{alt}" data-ratio="#{img.ratio}" /></a>
           <figcaption>#{alt}</figcaption>
         </figure>
       }
     end
 
-    def single_image_html(src:, alt:)
+    def single_image_html(src:, alt:, attrs:)
       %Q{
-        <figure>
+        <figure class="#{attr["class"]}">
           <a href="#{src}"><img src="#{src}" alt="#{alt}" /></a>
           <figcaption>#{alt}</figcaption>
         </figure>
