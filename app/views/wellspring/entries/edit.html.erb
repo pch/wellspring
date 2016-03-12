@@ -6,13 +6,19 @@
       <%= f.text_field :title, placeholder: 'Title' %>
       <%= f.error :title %>
     </div>
+
     <div class="col settings">
       <%= link_to '#', 'aria-selected' => false, data: { behavior: 'show-slider' }, class: 'js-menu-trigger sliding-panel-button post-settings-btn' do %>
         <i class="ion-ios-gear-outline"></i>
       <% end %>
 
-      <%= f.submit "Save Draft", name: "draft", class: "btn btn-primary" %>
-      <%= f.submit "Publish", name: "publish", class: "btn btn-primary" %>
+      <% if !@entry.published? %>
+        <%= f.submit "Save Draft", name: "draft", class: "btn btn-primary" %>
+        <%= f.submit "Publish", name: "publish", class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit "Unpublish", name: "unpublish", class: "btn btn-primary" %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 

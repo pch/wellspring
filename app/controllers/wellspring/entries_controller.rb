@@ -33,7 +33,7 @@ module Wellspring
 
     def update
       if @entry.update(entry_params)
-        @entry.update_attribute(:status, :draft) if params[:draft].present?
+        @entry.update_attribute(:status, :draft) if params[:draft].present? || params[:unpublish].present?
         @entry.update_attribute(:status, :published) if params[:publish].present?
 
         redirect_to content_entry_path(@entry), notice: 'Entry was successfully updated.'
@@ -54,7 +54,7 @@ module Wellspring
     end
 
     def entry_params
-      allowed_attrs = %i(id type title slug published_at body raw_tags author_name parent_id)
+      allowed_attrs = %i(id type title slug published_at body raw_tags author_name meta_description parent_id)
         .concat(content_class.constantize.content_attributes.keys)
 
       params.require(:entry).permit(*allowed_attrs)
