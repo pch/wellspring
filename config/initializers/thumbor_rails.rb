@@ -1,4 +1,4 @@
 ThumborRails.setup do |config|
-  config.server_url = 'http://images.pchm.dev'
-  config.security_key = 'PCHM'
+  config.server_url = ENV.fetch('THUMBOR_URL')
+  config.security_key = ENV.fetch('THUMBOR_SECURITY_KEY')
 end
