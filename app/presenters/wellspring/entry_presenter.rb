@@ -2,29 +2,42 @@ module Wellspring
   class EntryPresenter < BasePresenter
     presents :entry
 
+    DEFAULT_THUMBNAIL_WIDTH = 500
+
     def body_markdown
       text = parse_custom_markdown(@object.body.to_s)
       RDiscount.new(text, :smart, :footnotes).to_html.html_safe
     end
 
-    def photoset_item_html(src:, alt:, attrs:)
+    def photoset_item(src:, alt:, attrs:)
       img = images_hash[src.split('/').last]
+      attrs["class"] = "photoset-item " + attrs["class"].to_s
 
-      %Q{
-        <figure class="photoset-item #{attr["class"]}">
-          <a href="#{src}"><img src="#{src}" alt="#{alt}" data-ratio="#{img.ratio}" /></a>
-          <figcaption>#{alt}</figcaption>
-        </figure>
-      }
+      photoset_item_html(img, src, alt, attrs, image_attrs(img))
+    end
+
+    def photoset_item_html(img, src, alt, attrs, image_attrs)
+      content_tag(:figure, attrs) do
+        concat image_tag(thumbnail_url(src, width: DEFAULT_THUMBNAIL_WIDTH), { alt: alt }.merge(image_attrs))
+        concat content_tag(:figcaption, alt)
+      end
     end
 
     def single_image_html(src:, alt:, attrs:)
-      %Q{
-        <figure class="#{attr["class"]}">
-          <a href="#{src}"><img src="#{src}" alt="#{alt}" /></a>
-          <figcaption>#{alt}</figcaption>
-        </figure>
-      }
+      content_tag(:figure, attrs) do
+        concat image_tag(thumbnail_url(src, width: DEFAULT_THUMBNAIL_WIDTH), alt: alt)
+        concat content_tag(:figcaption, alt)
+      end
+    end
+
+    def thumbnail_url(image_url, attrs)
+      thumbor_url(request.protocol + request.host + image_url, attrs)
+    end
+
+    def image_attrs(img)
+      return {} unless img
+
+      { data: { width: img.width, height: img.height, ratio: img.ratio } }
     end
 
     private

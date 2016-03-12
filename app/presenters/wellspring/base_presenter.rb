@@ -18,7 +18,12 @@ module Wellspring
     end
 
     def method_missing(*args, &block)
-      @object.send(*args, &block)
+      # this is probably too hacky
+      if @object.respond_to?(args.first)
+        @object.send(*args, &block)
+      else
+        @template.send(*args, &block)
+      end
     end
   end
 end

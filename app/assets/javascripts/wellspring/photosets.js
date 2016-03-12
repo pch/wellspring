@@ -34,7 +34,7 @@ Wellspring.Photosets = {
 
       $pi.each(function (i) {
         var minWidth = (cWidth - sumMargins) / sumRatios;
-        $(this).find('a')
+        $(this).find('img')
           .width(Math.ceil(minWidth / minRatio) * ratios[i])
           .height(Math.ceil(minWidth / minRatio));
       });

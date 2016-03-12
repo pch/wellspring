@@ -28,7 +28,7 @@ module Wellspring
         rows = $1.gsub("\r", "").strip.split("\n\n").map do |row|
           # Each line in row is considered an "item" (image)
           items  = row.split("\n").reject { |i| i.strip.blank? }
-          images = items.map { |image| parse_image(image, :photoset_item_html) }
+          images = items.map { |image| parse_image(image, :photoset_item) }
 
           PHOTOSET_ROW_HTML % { items: images.join("\n") }
         end
@@ -38,7 +38,7 @@ module Wellspring
     end
 
     def parse_single_images(text)
-      parse_image(text, :single_image_html)
+      parse_image(text, :single_image)
     end
 
     private
