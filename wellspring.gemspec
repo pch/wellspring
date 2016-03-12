@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mini_magick"
   s.add_dependency "thumbor_rails"
 
-  s.add_dependency "redcarpet"
+  s.add_dependency "rdiscount"
 
   s.add_development_dependency "pg"
 end

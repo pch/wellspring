@@ -4,7 +4,7 @@ module Wellspring
 
     require 'jquery-rails'
     require 'dropzonejs-rails'
-    require 'redcarpet'
+    require 'rdiscount'
     require 'carrierwave'
     require 'thumbor_rails'
 

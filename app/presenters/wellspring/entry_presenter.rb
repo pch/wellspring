@@ -2,23 +2,9 @@ module Wellspring
   class EntryPresenter < BasePresenter
     presents :entry
 
-    MARKDOWN_OPTIONS = {
-      filter_html: false,
-      autolink: true,
-      no_intra_emphasis: true,
-      fenced_code_blocks: true,
-      lax_html_blocks: true,
-      strikethrough: true,
-      superscript: true,
-      tables: true,
-      footnotes: true
-    }.freeze
-
     def body_markdown
       text = parse_custom_markdown(@object.body.to_s)
-
-      renderer = ::Redcarpet::Render::HTML.new(hard_wrap: false, filter_html: false)
-      ::Redcarpet::Markdown.new(renderer, MARKDOWN_OPTIONS).render(text.to_s).html_safe
+      RDiscount.new(text, :smart, :footnotes).to_html.html_safe
     end
 
     def photoset_item_html(src:, alt:)
