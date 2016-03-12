@@ -1,12 +1,12 @@
 Wellspring::Engine.routes.draw do
-  post 'preview', to: 'previews#show', as: :preview
-
   resources :images
 
   post 'images/create', as: :image_upload
 
   scope "/:content_class" do
-    resources :entries
+    resources :entries do
+      post :preview, on: :member, as: :preview
+    end
   end
 
   get 'sign-in',  to: 'sessions#new', as: 'signin'

@@ -2,7 +2,7 @@ require_dependency "wellspring/application_controller"
 
 module Wellspring
   class EntriesController < ApplicationController
-    before_action :set_entry, only: [:show, :edit, :update, :destroy]
+    before_action :set_entry, only: [:show, :edit, :update, :destroy, :preview]
 
     def index
       Entry.clean_up_unsaved_entries!
@@ -45,6 +45,11 @@ module Wellspring
     def destroy
       @entry.destroy
       redirect_to content_entries_path, notice: 'Entry was successfully destroyed.'
+    end
+
+    def preview
+      @entry.body = params[:text]
+      render layout: false
     end
 
     private
