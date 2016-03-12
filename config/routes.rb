@@ -1,8 +1,6 @@
 Wellspring::Engine.routes.draw do
   resources :images
 
-  post 'images/create', as: :image_upload
-
   scope "/:content_class" do
     resources :entries do
       post :preview, on: :member, as: :preview
