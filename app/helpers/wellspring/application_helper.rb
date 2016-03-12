@@ -18,5 +18,16 @@ module Wellspring
         basic_body_class
       end
     end
+
+    def present(object, klass = nil)
+      begin
+        klass ||= "#{object.class}Presenter".constantize
+      rescue NameError
+        klass = "#{object.class.superclass}Presenter".constantize
+      end
+      presenter = klass.new(object, self)
+      yield presenter if block_given?
+      presenter
+    end
   end
 end

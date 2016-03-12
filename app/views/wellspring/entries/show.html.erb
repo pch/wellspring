@@ -5,31 +5,36 @@
   <%= link_to "Edit #{content_class.titleize}", edit_content_entry_path(@entry), class: 'btn btn-primary space-2' %>
 <% end %>
 
-<table class="table">
-  <tbody>
-    <tr>
-      <td>Slug:</td>
-      <td><%= @entry.slug %></td>
-    </tr>
-    <tr>
-      <td>Author name:</td>
-      <td><%= @entry.author_name %></td>
-    </tr>
-
-    <tr>
-      <td>Tags:</td>
-      <td><%= @entry.tags.join(', ') %></td>
-    </tr>
-
-    <% @entry.class.content_attributes.each do |attr_name, attr_type| %>
+<% present(@entry, Wellspring::EntryPresenter) do |entry| %>
+  <table class="table">
+    <tbody>
       <tr>
-        <td><%= attr_name.to_s.titleize %>:</td>
-        <td><%= @entry.send(attr_name.to_sym) %></td>
+        <td>Slug:</td>
+        <td><%= @entry.slug %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <td>Author name:</td>
+        <td><%= @entry.author_name %></td>
+      </tr>
+      <tr>
+        <td>Meta Description:</td>
+        <td><%= @entry.meta_description %></td>
+      </tr>
+      <tr>
+        <td>Tags:</td>
+        <td><%= @entry.tags.join(', ') %></td>
+      </tr>
 
-<div>
-  <%= markdown @entry.body %>
-</div>
+      <% @entry.class.content_attributes.each do |attr_name, attr_type| %>
+        <tr>
+          <td><%= attr_name.to_s.titleize %>:</td>
+          <td><%= @entry.send(attr_name.to_sym) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <%= entry.body_markdown %>
+  </div>
+<% end %>
