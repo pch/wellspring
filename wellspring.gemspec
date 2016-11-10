@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Wellspring::VERSION
   s.authors     = ["Piotr Chmolowski"]
   s.email       = ["piotr@chmolowski.pl"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Wellspring."
-  s.description = "TODO: Description of Wellspring."
+  s.homepage    = "http://pchm.co"
+  s.summary     = "Rails & Postgres CMS Engine"
+  s.description = "Rails & Postgres CMS Engine (from the turorial on my blog)."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
